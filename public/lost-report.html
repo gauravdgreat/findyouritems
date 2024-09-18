@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>FindYourItem - Report Lost Item</title>
+</head>
+<body>
+    <header>
+        <h1>FIND YOUR ITEM</h1>
+    </header>
+
+    <div class="navbar">
+        <button onclick="window.location.href='index.html';">Home</button>
+        <button onclick="window.location.href='lost-report.html';">Lost Your Item</button>
+        <button onclick="window.location.href='found-item.html';">Find Something</button>
+    </div>
+
+    <main>
+        <div class="form-container">
+            <h2>Report About Your Lost Item</h2>
+            <form action="/submit-lost-report" method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="item-name">Name of the item:</label>
+                    <input type="text" id="item-name" name="item_name" required>
+                </div>
+    
+                <div class="form-group">
+                    <label for="item-description">Description:</label>
+                    <textarea id="item-description" name="item_description" rows="4" required></textarea>
+                </div>
+    
+                <div class="form-group">
+                    <label for="date-lost">Date Lost:</label>
+                    <input type="date" id="date-lost" name="date_lost" required>
+                </div>
+    
+                <div class="form-group">
+                    <label for="location-lost">Location Lost:</label>
+                    <input type="text" id="location-lost" name="location_lost" required>
+                </div>
+    
+                <div class="form-group">
+                    <label for="contact-info">Contact Information:</label>
+                    <input type="text" id="contact-info" name="contact_info" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="item-image">Upload Image:</label>
+                    <input type="file" id="item-image" name="item_image" accept="image/*">
+                </div>
+    
+                <div class="form-group">
+                    <button type="submit">Submit Report</button>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        <p>Created By Gaurav 2024</p>
+    </footer>
+
+    <script>
+        fetch('/check-auth')
+            .then(response => response.json())
+            .then(data => {
+                if (!data.isAuthenticated) {
+                    window.location.href = '/login.html';
+                }
+            });
+    </script>
+</body>
+</html>

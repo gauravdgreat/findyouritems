@@ -1,0 +1,249 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #ffffff; 
+    background-color: #121212; 
+}
+
+
+header {
+    background-color: #000000; /* Dark header background */
+    color: #a90000; /* White text color */
+    text-shadow: #ffffff;
+    font-size: 24px; /* Adjusted font size */
+    padding: 15px 25px; /* Padding for spacing */
+    display: flex;
+    justify-content: flex-end; /* Align content to the right */
+    align-items: center;
+    border-bottom: 2px solid #444; 
+}
+
+
+.navbar {
+    background-color: #000; /* Black background for navbar */
+    display: flex;
+    justify-content: space-around; /* Space buttons evenly */
+    align-items: center;
+    padding: 10px; /* Padding around buttons */
+    border-bottom: 2px solid #300303; 
+}
+.navbar button {
+    background-color: #7f0202; /* Dark grey background */
+    color: #ffaa00; /* White text color */
+    border: none; /* No border */
+    padding: 12px 20px; /* Adjusted padding */
+    text-align: center;
+    font-size: 16px; /* Font size */
+    cursor: pointer; /* Pointer cursor on hover */
+    border-radius: 4px; /* Slightly rounded corners */
+    transition: background-color 0.3s ease; /* Smooth transition */
+}
+
+.navbar button:hover {
+    background-color: #8b8a8a; /* Lighter grey on hover */
+    color: #ffffff; /* Maintain white text color */
+}
+
+
+footer {
+    background-color: #333; /* Dark footer background */
+    color: #ffffff; /* White text color */
+    text-align: center;
+    position: relative;
+    bottom: 0;
+    width: 100%; /* Full width */
+    border-top: 2px solid #444; /* Subtle border */
+    font-size: 14px; /* Font size */
+
+}
+
+.form-container {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #333;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.form-group input, .form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #555;
+    border-radius: 4px;
+    background-color: #444;
+    color: #ffffff;
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+.form-group button {
+    width: 100%;
+    padding: 10px;
+    background-color: #555;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.form-group button:hover {
+    background-color: #777;
+}
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .navbar button {
+        width: 100%;
+        margin-bottom: 5px;
+    }
+}
+
+
+.login-signup-container {
+    max-width: 500px;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #333;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.login-signup-container h2 {
+    margin-bottom: 20px;
+    color: #ffffff;
+    text-align: center;
+}
+
+.login-signup-container .form-group {
+    margin-bottom: 15px;
+}
+
+.login-signup-container .form-group label {
+    color: #ffffff;
+}
+
+.login-signup-container .form-group input {
+    background-color: #444;
+    color: #ffffff;
+}
+
+.login-signup-container .form-group button {
+    background-color: #7f0202;
+}
+
+.login-signup-container .form-group button:hover {
+    background-color: #8b8a8a;
+}
+
+
+main {
+    padding: 20px;
+}
+
+section {
+    margin-bottom: 20px;
+}
+
+section h3 {
+    color: #ffffff;
+    border-bottom: 2px solid #444;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+
+.item {
+    background-color: #444;
+    border: 1px solid #555;
+    border-radius: 4px;
+    margin-bottom: 15px;
+    padding: 15px;
+}
+
+.item h4 {
+    color: #ffaa00;
+    margin-bottom: 10px;
+}
+
+.item p {
+    color: #ffffff;
+}
+
+.item a {
+    color: #ffaa00;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.item a:hover {
+    text-decoration: underline;
+}
+.items-container {
+    display: flex;
+    justify-content:space-around;
+    gap:20 px; 
+    margin: 20px 0;
+}
+#lost-items-list, #found-items-list {
+    max-height: 300px; 
+    overflow-y: auto;  
+    background-color: #222; 
+    padding: 10px;
+    border-radius: 4px;
+}
+
+#search-section {
+    margin: 20px 0;
+    text-align: center;
+}
+
+#search-input {
+    width: 60%;
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid #555;
+    background-color: #444;
+    color: white;
+    font-size: 16px;
+}
+
+#search-input::placeholder {
+    color: #999;
+}
+
+#search-section button {
+    padding: 10px 20px;
+    margin-left: 10px;
+    background-color: #ffaa00;
+    color: black;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#search-section button:hover {
+    background-color: #ffcc33;
+}
+#logout-button{
+    display: inline;
+    box-sizing: content-box;
+}

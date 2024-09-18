@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>FindYourItem</title>
+</head>
+<body>
+    <header>
+        <h1>FIND YOUR ITEM</h1>
+    </header>
+
+    <div class="navbar">
+        <button onclick="window.location.href='index.html';">Home</button>
+        <button onclick="window.location.href='lost-report.html';">Lost Your Item</button>
+        <button onclick="window.location.href='found-item.html';">Find Something</button>
+        <button onclick="window.location.href='login.html';">Login/SignUp</button>
+        <button id="logout-button" style="display: none;">Logout</button>
+    </div>
+
+    <main>
+        <p><strong>Here, You can check all the items have been reported so far</strong></p>
+
+        <div id="search-section">
+            <form id="search-form" method="GET" onsubmit="return checkLoginStatus();">
+                <input type="text" name="query" id="search-input" placeholder="Search items by name" required>
+                <button type="submit">Search</button>
+            </form>
+        </div>
+
+        <div class="items-container">
+            <section id="lost-items">
+                <h3>Lost Items Reported So Far</h3>
+                <div id="lost-items-list">
+                    <!-- Lost items will be dynamically inserted here -->
+                </div>
+            </section>
+        
+            <section id="found-items">
+                <h3>Found Items Reported So Far</h3>
+                <div id="found-items-list">
+                    <!-- Found items will be dynamically inserted here -->
+                </div>
+            </section>
+        </div>
+        
+    </main>
+
+   
+</body>
+<footer>
+    <p>Created By Gaurav 2024</p>
+</footer>
+
+<script>
+    // Check authentication and show logout button if logged in
+    fetch('/check-auth')
+        .then(response => response.json())
+        .then(data => {
+            if (data.isAuthenticated) {
+                document.getElementById('logout-button').style.display = 'inline-block';
+            }
+        });
+
+    // Logout button functionality
+    document.getElementById('logout-button').addEventListener('click', () => {
+        fetch('/logout')
+            .then(() => {
+                window.location.href = '/index.html'; // Redirect to home page after logout
+            });
+    });
+
+    // Fetch and display lost items
+    fetch('/api/lost-items')
+        .then(response => response.json())
+        .then(items => {
+            const container = document.getElementById('lost-items-list');
+            items.forEach(item => {
+                const itemDiv = document.createElement('div');
+                itemDiv.classList.add('item');
+                itemDiv.innerHTML = `
+                    <h4>${item.item_name}</h4>
+                    <p>${item.item_description}</p>
+                    <p><strong>Date Lost:</strong> ${new Date(item.date_lost).toDateString()}</p>
+                    <p><strong>Location Lost:</strong> ${item.location_lost}</p>
+                    <p><strong>Contact:</strong> ${item.contact_info}</p>
+                `;
+                container.appendChild(itemDiv);
+            });
+        });
+
+    // Fetch and display found items
+    fetch('/api/found-items')
+        .then(response => response.json())
+        .then(items => {
+            const container = document.getElementById('found-items-list');
+            items.forEach(item => {
+                const itemDiv = document.createElement('div');
+                itemDiv.classList.add('item');
+                itemDiv.innerHTML = `
+                    <h4>${item.item_name}</h4>
+                    <p>${item.item_description}</p>
+                    <p><strong>Date Found:</strong> ${new Date(item.date_found).toDateString()}</p>
+                    <p><strong>Location Found:</strong> ${item.location_found}</p>
+                    <p><strong>Contact:</strong> ${item.contact_info}</p>
+                `;
+                container.appendChild(itemDiv);
+            });
+        });
+    function checkLoginStatus() {
+        const isLoggedIn = sessionStorage.getItem('loggedIn');
+
+        if (!isLoggedIn) {
+            alert('Please log in to search items.');
+            window.location.href = 'login.html';
+            return false;
+        }
+
+        return true;
+    }
+
+    document.getElementById('search-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const query = document.getElementById('search-input').value;
+        
+        fetch(`/search?query=${query}`)
+            .then(response => response.json())
+            .then(data => {
+                if (data.message) {
+                    alert(data.message);
+                } else {
+                    displaySearchResults(data);
+                }
+            })
+            .catch(err => console.error('Error:', err));
+    });
+
+    function displaySearchResults(items) {
+        const lostItemsList = document.getElementById('lost-items-list');
+        const foundItemsList = document.getElementById('found-items-list');
+
+        lostItemsList.innerHTML = '';  // Clear previous results
+        foundItemsList.innerHTML = '';
+
+        items.forEach(item => {
+            const itemDiv = document.createElement('div');
+            itemDiv.className = 'item';
+
+            itemDiv.innerHTML = `
+                <strong>${item.item_name}</strong><br>
+                <small>Description: ${item.item_description}</small><br>
+                <small>Reported On: ${item.reported_date}</small>
+            `;
+
+            if (item.item_type === 'lost') {
+                lostItemsList.appendChild(itemDiv);
+            } else if (item.item_type === 'found') {
+                foundItemsList.appendChild(itemDiv);
+            }
+        });
+    }
+
+</script>
+
+
+
+</html>
