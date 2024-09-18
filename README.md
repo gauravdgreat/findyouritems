@@ -23,6 +23,13 @@ File Uploads: Multer
 Authentication: BcryptJS
 Session Management: Express-Session
 
+
+Visuals:
+![Screenshot 2024-03-06 144003](https://github.com/user-attachments/assets/a845f6c1-99ba-45df-974a-2875e9e65371)
+![Screenshot 2024-03-06 143744](https://github.com/user-attachments/assets/a72aef0b-37e5-419c-a6a1-4e5eba9bcdd0)
+
+
+
 🚀 Installation
 
 Get started with FindYourItem in just a few steps:
