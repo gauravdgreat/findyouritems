@@ -19,19 +19,10 @@ Session Management: Express-Session
 Get started with FindYourItem in just a few steps:
 
 Clone the Repository:
-
-bash
-Copy code
-git clone https://github.com/yourusername/findyouritems.git
+git clone https://github.com/gauravdgreat/findyouritems.git
 Navigate to the Project Directory:
-
-bash
-Copy code
 cd findyouritems
 Install Dependencies:
-
-bash
-Copy code
 npm install
 Set Up the Database:
 
@@ -42,16 +33,12 @@ Configure Environment Variables:
 Create a .env file in the root directory and add the following environment variables:
 
 dotenv
-Copy code
 DB_HOST=localhost
 DB_USER=root
 DB_PASSWORD=root
 DB_NAME=findyouritem
 SESSION_SECRET=your_secret_key
 Run the Application:
-
-bash
-Copy code
 npm start
 Access the Application:
 
