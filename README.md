@@ -1,5 +1,6 @@
-🎉 FindYourItem
-FindYourItem is your go-to web application for reporting lost and found items. Whether you’ve misplaced something valuable or found an item that someone else is looking for, this app has you covered!
+🎉 FindYourItems
+
+FindYourItems is your go-to web application for reporting lost and found items. Whether you’ve misplaced something valuable or found an item that someone else is looking for, this app has you covered!
 
 🌟 Features
 🔐 User Authentication: Sign up, log in, and keep your reports secure.
