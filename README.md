@@ -25,8 +25,11 @@ Session Management: Express-Session
 
 
 Visuals:
-![Screenshot 2024-03-06 144003](https://github.com/user-attachments/assets/a845f6c1-99ba-45df-974a-2875e9e65371)
-![Screenshot 2024-03-06 143744](https://github.com/user-attachments/assets/a72aef0b-37e5-419c-a6a1-4e5eba9bcdd0)
+
+![Screenshot 2024-09-19 010416](https://github.com/user-attachments/assets/c1d38a8c-0495-45d4-975a-a9d5b9db574e)
+
+![Screenshot 2024-09-19 010448](https://github.com/user-attachments/assets/9f553622-135b-4339-a264-7192bb18fc20)
+
 
 
 
